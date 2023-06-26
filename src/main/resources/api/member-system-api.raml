@@ -1,0 +1,217 @@
+#%RAML 1.0
+title: Member System API
+description: This RAML file describes structure of all member system API
+
+traits:
+  clientIdEnforcement: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-common-traits/1.0.3/clientIdenforcement-traits.raml
+  common: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-common-traits/1.0.3/commontraits.raml
+  jwtToken: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-common-traits/1.0.3/jwt-authorization-traits.raml
+  memberQueryParam: !include exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-common-traits/1.0.3/member-queryParams-traits.raml
+
+
+types:
+  
+  commonError: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-commom-datatypes/1.0.3/Member/error-response-dataType.raml
+  patchMemberDetailsRequest: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-commom-datatypes/1.0.3/Member/member-patch-details-request-dataType.raml
+  memberDetails: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-commom-datatypes/1.0.3/Member/member-Details-dataTypes.raml
+  postMemberdetailsResponse: !include /exchange_modules/cddc7efe-9800-42be-8264-92d3b85651c0/fragment-commom-datatypes/1.0.3/Member/member-post-details-response-dataType.raml
+  
+
+
+/members:
+  /{memberID}:
+    patch:
+      description: This API will fetch customer details from SFDC.
+      is:
+        - clientIdEnforcement
+        - common
+      body:
+        application/json:
+          description: This is success response for get member details API
+          type: memberDetails
+          example: !include /memberDetails-examplefile.json  
+      responses:
+        200:
+          body:
+            application/json:
+              type: patchMemberDetailsRequest
+              example: !include /member-post-details-response-example.json
+        400:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-400-response-example.json
+        401:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-401-response-example.json
+        404:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-404-response-example.json
+        500:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-500-response-example.json
+    get:
+      description: This API will fetch customer details from SFDC.
+      is:
+        - clientIdEnforcement
+        - common
+      responses:
+        200:
+          body:
+            application/json:
+              description: This is success response for get member details API
+              type: memberDetails
+              example: !include /memberDetails-examplefile.json
+                    
+        400:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-400-response-example.json
+        401:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-401-response-example.json
+        404:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-404-response-example.json
+        500:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-500-response-example.json
+  post:
+    description: This API will fetch customer details from SFDC.
+    is:
+      - clientIdEnforcement
+      - common
+    body:
+      application/json:
+        description: This is success response for get member details API
+        type: memberDetails
+        example: !include /memberDetails-examplefile.json
+    responses:
+      200:
+       body:
+          application/json:
+            type: postMemberdetailsResponse
+            example: !include /member-post-details-response-example.json
+
+      400:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-400-response-example.json
+      401:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-401-response-example.json
+      404:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-404-response-example.json
+      500:
+        body:
+            application/json:
+              type: commonError
+              example: !include /error-500-response-example.json
+  get:
+    description: This API will fetch customer details from SFDC.
+    is:
+      - clientIdEnforcement
+      - common
+      - memberQueryParam
+    responses:
+      200:
+        body:
+          application/json:
+            description: This is success response for get member details API
+            type: object
+            properties:
+              memberList:
+               type: array
+               items:
+                type: memberDetails  
+                example: !include /memberDetails-examplefile.json
+                  
+      400:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-400-response-example.json
+      401:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-401-response-example.json
+      404:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-404-response-example.json
+      500:
+        body:
+          application/json:
+            type: commonError
+            example: !include /error-500-response-example.json
+  /sync:
+    post:
+      description: This API will fetch customer details from SFDC.
+      is:
+        - clientIdEnforcement
+        - common
+      body:
+        application/json:
+          description: This is success response for get member details API
+          type: memberDetails
+          example: !include /memberDetails-examplefile.json  
+      responses:
+        200:
+          body:
+            application/json:
+              type: postMemberdetailsResponse
+              example: !include /member-post-details-response-example.json
+        400:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-400-response-example.json
+        401:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-401-response-example.json
+        404:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-404-response-example.json
+        500:
+          body:
+            application/json:
+              type: commonError
+              example: !include /error-500-response-example.json
+
+                    
+
+                    
+              
+
+
+                  
+                      
+
+                              
+
+              

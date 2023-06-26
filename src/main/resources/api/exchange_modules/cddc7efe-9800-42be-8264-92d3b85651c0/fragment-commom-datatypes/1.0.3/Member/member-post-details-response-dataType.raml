@@ -1,0 +1,28 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  msg:
+    description: "This element will display status of failed message"
+    type: string
+    example: "failed operation"
+    required: true
+  code:
+    description: "This element will display status of failed message"
+    type: integer
+    example: 200
+    required: true
+  success:
+    description: "This element will display status of failed message"
+    type: boolean
+    example: false
+    required: true
+  data:
+    description: "This element will display status of failed message"
+    type: object
+    required: true
+    properties:
+      memberId:
+        required: true
+        type: string
+        example: "gffgggyyutyugu"

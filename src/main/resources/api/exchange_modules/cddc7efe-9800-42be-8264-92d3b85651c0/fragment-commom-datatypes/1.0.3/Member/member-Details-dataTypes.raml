@@ -1,0 +1,90 @@
+#%RAML 1.0 DataType
+
+type: object
+properties: 
+  firstName:
+    required: true
+    type: string
+    example: "Pooja"
+  lastName:
+      required: false
+      type: string
+      example: "Sree"
+  maritalstatus:
+      required: false
+      type: string
+      example: "married"
+  title:
+      required: true
+      type: string
+      enum:
+        - Mr
+        - Mrs
+      example: "Mr"
+  gender:
+      description: This element will define gender of customer
+      required: true
+      type: string
+      example: "female"
+  occupation:
+      required: false
+      type: string
+      example: "Pooja"
+  preferredName:
+      required: false
+      type: string
+      example: "Pooja"
+  identity:
+      required: true
+      type: object
+      properties:
+        password:
+          required: true
+          type: string
+          example: "jfjkrf"
+        phoneCountry:
+          required: true
+          type: string
+          example: "+91"
+        phoneNumber:
+          required: true
+          type: string
+          example: "7093148049"
+        email:
+          required: true
+          type: string
+          example: "pooja@gmail.com"
+  address:
+    description: This element tell the address.
+    required: true
+    type: object
+    properties:
+      country:
+        description: This element will define password
+        required: true
+        type: string
+        enum:
+          - India
+          - United State
+          - UK
+        example: "India"
+      city:
+        description: This element will define city
+        required: true
+        type: string
+        example: "Hyd"
+      area:
+        description: will define area
+        required: true
+        type: string
+        example: "Chintal"
+      province:
+        description: qfjhfjkrfer
+        required: true
+        type: string
+        example: "767676"
+      placeOfResidence:
+        description: rgrgrgre
+        required: true
+        type: string
+        example: "jkjkjkjk"

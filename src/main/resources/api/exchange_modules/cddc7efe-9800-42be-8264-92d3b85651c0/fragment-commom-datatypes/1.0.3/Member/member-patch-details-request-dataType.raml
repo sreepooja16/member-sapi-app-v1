@@ -1,0 +1,90 @@
+#%RAML 1.0 DataType
+
+type: object
+properties: 
+  firstName:
+    required: false
+    type: string
+    example: "Pooja"
+  lastName:
+      required: false
+      type: string
+      example: "Sree"
+  maritalstatus:
+      required: false
+      type: string
+      example: "married"
+  title:
+      required: false
+      type: string
+      enum:
+        - Mr
+        - Mrs
+      example: "Mr"
+  gender:
+      description: This element will define gender of customer
+      required: false
+      type: string
+      example: "female"
+  occupation:
+      required: false
+      type: string
+      example: "Pooja"
+  preferredName:
+      required: false
+      type: string
+      example: "Pooja"
+  identity:
+      required: false
+      type: object
+      properties:
+        password:
+          required: false
+          type: string
+          example: "jfjkrf"
+        phoneCountry:
+          required: false
+          type: string
+          example: "+91"
+        phoneNumber:
+          required: false
+          type: string
+          example: "7093148049"
+        email:
+          required: false
+          type: string
+          example: "pooja@gmail.com"
+  address:
+    description: This element tell the address.
+    required: false
+    type: object
+    properties:
+      country:
+        description: This element will define password
+        required: false
+        type: string
+        enum:
+          - India
+          - United State
+          - UK
+        example: "India"
+      city:
+        description: This element will define city
+        required: false
+        type: string
+        example: "Hyd"
+      area:
+        description: will define area
+        required: false
+        type: string
+        example: "Chintal"
+      province:
+        description: qfjhfjkrfer
+        required: false
+        type: string
+        example: "767676"
+      placeOfResidence:
+        description: rgrgrgre
+        required: false
+        type: string
+        example: "jkjkjkjk"
